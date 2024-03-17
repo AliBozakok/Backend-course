@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\courseController;
+use App\Http\Controllers\studentController;
+use App\Http\Controllers\studentCourseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +26,5 @@ Route::post('Add', [courseController::class,'store']);
 Route::put('edit/{id}', [courseController::class,'update']);
 Route::delete('delete/{id}', [courseController::class,'destroy']);
 Route::apiResource('cousre',courseController::class);
+Route::apiResource('student',studentController::class);
+Route::apiResource('studentCourse',studentCourseController::class);

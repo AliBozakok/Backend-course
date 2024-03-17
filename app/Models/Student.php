@@ -14,4 +14,11 @@ class Student extends Model
         'birthday',
         'phone'
     ];
+
+    public function edit()
+   {
+        $this->isActive= false;
+        $this->isdeleted=true;
+
+    }
 }

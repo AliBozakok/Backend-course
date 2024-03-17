@@ -39,7 +39,7 @@ class studentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(studentRequest $request, string $id)
     {
         $input= $request->validated();
         $studen=Student::findOrFail($id);
@@ -53,7 +53,8 @@ class studentController extends Controller
     public function destroy(string $id)
     {
         $student=Student::findOrFail($id);
-        $student->delete();
+        $student->edit();
+        $student->save();
         return response()->json(["message"=>" student is deleted succcessfully"]);
     }
 }
