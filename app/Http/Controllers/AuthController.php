@@ -81,13 +81,13 @@ class AuthController extends Controller
     public function register (Request $request)
     {
         $input= $request->validate([
-        'name'=>['required'],
+        'name'=>['required','string'],
         'email'=>['required','email'],
         'password'=>['required']]);
         $user= User::where('email',$request->email)->first();
         if(!$user)
         {
-            user::create($input);
+            User::create($input);
             return response()->json(["message"=>"regiteration is success"]);
         }
         return response()->json(["message"=>"user is found"]);
